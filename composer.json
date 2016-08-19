@@ -1,6 +1,7 @@
 {
   "name": "leandrogoncalves/vcgen",
   "description": "This class was created to generate shortcodes of visual composer plugin,",
+  "license": "GPL-3.0+",
   "authors": [
     {
       "name": "Leandro",
