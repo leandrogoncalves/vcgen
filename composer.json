@@ -1,0 +1,13 @@
+{
+  "name": "Vcgen",
+  "description": "This class was created to generate shortcodes of visual composer plugin,",
+  "authors": [
+    {
+      "name": "Leandro",
+      "email": "leandro@lesolution.com.br"
+    }
+  ],
+  "require": {
+    "php": ">=5.3"
+  }
+}
