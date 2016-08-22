@@ -54,7 +54,7 @@ class Vcgen_core{
     /**
      * Vcgen constructor.
      */
-    public function __construct() {
+    protected function __construct() {
         $this->nodeName = null;
         $this->nodeValue = null;
         $this->attributes = [];
@@ -68,7 +68,7 @@ class Vcgen_core{
      * @param array $attributes
      * @return Vcgen
      */
-    private function createElement($name, $attributes = []){
+    protected function createElement($name, $attributes = []){
         $tmp = new self();
 
         try{
@@ -90,7 +90,7 @@ class Vcgen_core{
         return $tmp;
     }
 
-    public function setAttr($name, $value){
+    protected function setAttr($name, $value){
         if(!in_array($name, $this->attributes)){
             $this->attributes[$name] = null;
         }
@@ -109,7 +109,7 @@ class Vcgen_core{
      * @param $attributes
      * @return Vcgen
      */
-    public function __call($name, $attributes){
+    protected function __call($name, $attributes){
         try
         {
             if(empty($attributes) && !is_array($attributes))  throw new NullException("O parametro nao pode ser nulo.  ", 001);
