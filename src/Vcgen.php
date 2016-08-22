@@ -83,10 +83,16 @@ class Vcgen{
      * @return Vcgen
      */
     public function __call($name, $attributes){
-        if(empty($name)){
-            throw new NullException("O parametro nao pode ser nulo. Detalhes ");
+        try
+        {
+            if(empty($attributes) && !is_array($attributes))  throw new NullException("O parametro nao pode ser nulo.  ", 001);
+
+            if(!isset($atributes['name'])) throw new NullException("O atributo nome deve ser declarado. ", 002);
+
+            return $this->createElement($name, $attributes);
+        }catch(NullException $n){
+            die($n->getMessage());
         }
-        return $this->createElement($name, $attributes);
     }
 
 
