@@ -2,7 +2,7 @@
 
 namespace leandrogoncalves\exceptions;
 
-class NullException extends \Exception
+class ParameterException extends \Exception
 {
     public  function __construct($message, $code=0, Exception $previous = null)
     {
