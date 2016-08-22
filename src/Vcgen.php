@@ -17,6 +17,7 @@ class Vcgen{
 
     public function __construct() {
         $this->node = null;
+        
     }
 
 }
