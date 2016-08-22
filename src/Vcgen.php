@@ -9,7 +9,7 @@
  *
  */
 
-namespace leandrogoncalves\vcgen;
+namespace leandrogoncalves;
 
 class Vcgen{
 
