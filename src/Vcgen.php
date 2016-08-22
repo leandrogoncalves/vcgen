@@ -11,6 +11,8 @@
 
 namespace leandrogoncalves;
 
+use leandrogoncalves\exceptions\NullException;
+
 class Vcgen{
 
     /**
@@ -81,6 +83,9 @@ class Vcgen{
      * @return Vcgen
      */
     public function __call($name, $attributes){
+        if(empty($name)){
+            throw new NullException;
+        }
         return $this->createElement($name, $attributes);
     }
 
