@@ -179,7 +179,7 @@ class Vcgen_node implements \Iterator
      */
     public function valid()
     {
-        return null !== $this->childNodes[$this->currentNode];
+        return isset($this->childNodes[$this->currentNode]);
     }
 
 
