@@ -1,6 +1,6 @@
 <?php
 /**
- *  Class Visual composer Generator
+ *  Class Visual composer Generator Vcgen Node
  *  This class was created to generate shortcodes of visual composer plugin,
  *  to be used in templates of custom pages wordpress
  * @author Leandro Gonçalaves <leandro@lesolution.com.br>
@@ -14,7 +14,8 @@ namespace leandrogoncalves\nodes;
 use leandrogoncalves\exceptions\NullException;
 use leandrogoncalves\exceptions\ParameterException;
 
-class Vcgen_node{
+class Vcgen_node implements \Iterator
+{
 
     /**
      * Tipos de nós
@@ -26,13 +27,13 @@ class Vcgen_node{
      * Nome da tag
      * @var null
      */
-    protected $nodeName;
+    public $nodeName;
 
     /**
      * Valor String da Tag
      * @var null
      */
-    protected $nodeValue;
+    public $nodeContent;
 
     /**
      * Atributos da tag
@@ -40,98 +41,172 @@ class Vcgen_node{
      */
     protected $attributes;
 
-    /**
-     * Tag pai
-     * @var array
-     */
-    protected $parentNode;
 
     /** Tag filha
      * @var array
      */
     protected $childNodes;
 
+
+    /**
+     * @var int
+     */
+    protected $currentNode;
+
     /**
      * Vcgen constructor.
      */
-    protected function __construct() {
+    protected function __construct()
+    {
         $this->nodeName = null;
         $this->nodeValue = null;
         $this->attributes = [];
-        $this->parentNode = [];
         $this->childNodes = [];
+        $this->correntNode = 0;
     }
 
     /**
      * Cria um novo VC shortcode
+     *
      * @param String $name
      * @param array $attributes
      * @return Vcgen
      */
-    protected function createElement($name, $attributes = []){
+    protected function createElement($name, $attributes = [])
+    {
 
-        try{
+        if (is_array($name)) throw new ParameterException("O nome deve ser uma string", 003);
 
-            if(is_array($name)) throw new ParameterException("O nome deve ser uma string", 003);
-            if(empty($attributes) && !is_array($attributes))  throw new NullException("O parametro nao pode ser nulo.  ", 001);
+        $this->nodeName = $name;
 
-            $this->nodeName = $name;
+        if (is_array($attributes)) {
             $this->attributes = array_merge($this->attributes, $attributes);
-
-        }catch (ParameterException $e){
-            //TODO tratar mensagem
-            die($e->getMessage());
-        }catch (NullException $e){
-            //TODO tratar mensagem
-            die($e->getMessage());
+        }else{
+            $this->nodeContent = $attributes;
         }
 
     }
 
-    protected function setAttr($name, $value){
-        if(!in_array($name, $this->attributes)){
+    /**
+     * Return formated attributes
+     *
+     * @return string
+     */
+    public function getAttributes(){
+        $tmp = "";
+        if(!empty($this->attributes)){
+            foreach ($this->attributes as $k => $att){
+                $tmp .= " {$k}='{$att}' ";
+            }
+        }
+        return $tmp;
+    }
+
+    /**
+     * Configure node atributees
+     *
+     * @param $name String
+     * @param $value Mixed
+     * @return $this
+     */
+    protected function setAttr($name, $value)
+    {
+        if (!in_array($name, $this->attributes)) {
             $this->attributes[$name] = null;
         }
 
-        if(!is_array($value)){
+        if (!is_array($value)) {
             $this->attributes[$name] = $value;
         }
 
         return $this;
     }
 
-    protected function addChild(Vcgen_node $node){
+    /**
+     *
+     * Add a node child
+     *
+     * @param Vcgen_node $node
+     */
+    protected function addChild(Vcgen_node $node)
+    {
         $this->childNodes[] = $node;
-    }
-
-    protected function addChildrens(Array $els){
-        foreach ($els as $e){
-            if(!($e instanceof Vcgen_node)){
-                throw new ParameterException("Os elementos devem ser filhos de Vcgen_node. ");
-            }
-        }
-        array_merge($this->childNodes, $els);
+        return $this;
     }
 
     /**
-     * Cria um novo VC shortcode a partir de metodos dinamicos
-     * @param $name
-     * @param $attributes
-     * @return Vcgen
+     * Check if exist son node
+     *
+     * @return bool
      */
-//    protected function __call($name, $attributes){
-//        try
-//        {
-//            if(empty($attributes) && !is_array($attributes))  throw new NullException("O parametro nao pode ser nulo.  ", 001);
-//
-//            if(!isset($atributes['name'])) throw new NullException("O atributo nome deve ser declarado. ", 002);
-//
-//            return $this->createElement($atributes['name'], $attributes);
-//        }catch(NullException $n){
-//            //TODO tratar mensagem
-//            die($n->getMessage());
-//        }
-//    }
+    public function has_child(){
+        return count($this->childNodes) > 0 ? true : false;
+    }
 
+
+
+    /**
+     * Move forward to next element.
+     *
+     * @link http://php.net/manual/en/iterator.next.php
+     *
+     * @return void Any returned value is ignored.
+     */
+    public function next(){
+        $this->currentNode++;
+    }
+
+    /**
+     * Return the current book.
+     *
+     * @link http://php.net/manual/en/iterator.current.php
+     *
+     * @return current node
+     */
+    public function current()
+    {
+        return $this->childNodes[$this->currentNode];
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.0.0)<br/>
+     * Checks if current position is valid.
+     *
+     * @link http://php.net/manual/en/iterator.valid.php
+     *
+     * @return bool The return value will be casted to boolean and then evaluated.
+     *              Returns true on success or false on failure.
+     */
+    public function valid()
+    {
+        return null !== $this->childNodes[$this->currentNode];
+    }
+
+
+    /**
+     * (PHP 5 &gt;= 5.0.0)<br/>
+     * Return the key of the current element.
+     *
+     * @link http://php.net/manual/en/iterator.key.php
+     *
+     * @return mixed scalar on success, or null on failure.
+     */
+    public function key()
+    {
+        return $this->currentNode;
+    }
+
+    /**
+     * (PHP 5 &gt;= 5.0.0)<br/>
+     * Rewind the Iterator to the first element.
+     *
+     * @link http://php.net/manual/en/iterator.rewind.php
+     *
+     * @return void Any returned value is ignored.
+     */
+    public function rewind()
+    {
+        $this->currentNode = 0;
+    }
 
 }

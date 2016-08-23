@@ -30,6 +30,7 @@ class Vcgen_factory{
         $this->typeList = [
             'newRow' => __NAMESPACE__ . '\nodes\Vcgen_row',
             'newCol' => __NAMESPACE__ . '\nodes\Vcgen_col',
+            'newText' => __NAMESPACE__ . '\nodes\Vcgen_text',
         ];
     }
 
@@ -39,13 +40,26 @@ class Vcgen_factory{
      * @param $attr String
      */
     public function __call($type, $attr){
-        if(!array_key_exists($type, $this->typeList )){
-           throw new ParameterException($type . " não é um parametro válido");
+        try{
+
+            if(!array_key_exists($type, $this->typeList )){
+                throw new ParameterException($type . " não é um parametro válido");
+            }
+            $className = $this->typeList[$type];
+            return new $className(array_shift($attr));
+
+        }catch (ParameterException $e){
+            //TODO tratar mensagem
+            die($e->getMessage());
+        }catch (NullException $e){
+            //TODO tratar mensagem
+            die($e->getMessage());
+        }catch (\Exception $ex){
+            //TODO tratar mensagem
+            die($ex->getMessage());
         }
-        $className = $this->typeList[$type];
-        return new $className($attr);
     }
-    
+
 //    public function newRow(array $att = []){
 //        return new Vcgen_row($att);
 //    }
@@ -53,5 +67,5 @@ class Vcgen_factory{
 //    public function newCol(array $att = []){
 //        return new Vcgen_row($att);
 //    }
-    
+
 }
