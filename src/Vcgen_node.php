@@ -14,7 +14,7 @@ namespace leandrogoncalves;
 use leandrogoncalves\exceptions\NullException;
 use leandrogoncalves\exceptions\ParameterException;
 
-class Vcgen_core{
+class Vcgen_node{
 
     /**
      * Tipos de nós
@@ -69,15 +69,14 @@ class Vcgen_core{
      * @return Vcgen
      */
     protected function createElement($name, $attributes = []){
-        $tmp = new self();
 
         try{
 
             if(is_array($name)) throw new ParameterException("O nome deve ser uma string", 003);
             if(empty($attributes) && !is_array($attributes))  throw new NullException("O parametro nao pode ser nulo.  ", 001);
 
-            $tmp->nodeName = $name;
-            $tmp->attributes = array_merge($tmp->attributes, $attributes);
+            $this->nodeName = $name;
+            $this->attributes = array_merge($this->attributes, $attributes);
 
         }catch (ParameterException $e){
             //TODO tratar mensagem
@@ -87,7 +86,6 @@ class Vcgen_core{
             die($e->getMessage());
         }
 
-        return $tmp;
     }
 
     protected function setAttr($name, $value){
@@ -109,19 +107,19 @@ class Vcgen_core{
      * @param $attributes
      * @return Vcgen
      */
-    protected function __call($name, $attributes){
-        try
-        {
-            if(empty($attributes) && !is_array($attributes))  throw new NullException("O parametro nao pode ser nulo.  ", 001);
-
-            if(!isset($atributes['name'])) throw new NullException("O atributo nome deve ser declarado. ", 002);
-
-            return $this->createElement($atributes['name'], $attributes);
-        }catch(NullException $n){
-            //TODO tratar mensagem
-            die($n->getMessage());
-        }
-    }
+//    protected function __call($name, $attributes){
+//        try
+//        {
+//            if(empty($attributes) && !is_array($attributes))  throw new NullException("O parametro nao pode ser nulo.  ", 001);
+//
+//            if(!isset($atributes['name'])) throw new NullException("O atributo nome deve ser declarado. ", 002);
+//
+//            return $this->createElement($atributes['name'], $attributes);
+//        }catch(NullException $n){
+//            //TODO tratar mensagem
+//            die($n->getMessage());
+//        }
+//    }
 
 
 }

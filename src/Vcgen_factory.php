@@ -12,7 +12,7 @@
 namespace leandrogoncalves;
 
 
-class Vcgen{
+class Vcgen_factory{
 
     public function __construct() {}
     

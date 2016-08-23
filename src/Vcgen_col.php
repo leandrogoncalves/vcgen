@@ -12,7 +12,7 @@
 namespace leandrogoncalves;
 
 
-class Vcgen_col extends Vcgen_core{
+class Vcgen_col extends Vcgen_node{
 
 
     /**
@@ -28,7 +28,7 @@ class Vcgen_col extends Vcgen_core{
 
         $attributes = array_merge($attributes, $att);
 
-        return $this->createElement( $attributes);
+        $this->createElement( $attributes);
     }
 
 
