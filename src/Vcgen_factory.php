@@ -28,8 +28,8 @@ class Vcgen_factory{
      */
     public function __construct() {
         $this->typeList = [
-            'newRow' => __NAMESPACE__ . '\nodes\Vcgen_row',
-            'newCol' => __NAMESPACE__ . '\nodes\Vcgen_col',
+            'newRow'  => __NAMESPACE__ . '\nodes\Vcgen_row',
+            'newCol'  => __NAMESPACE__ . '\nodes\Vcgen_col',
             'newText' => __NAMESPACE__ . '\nodes\Vcgen_text',
         ];
     }

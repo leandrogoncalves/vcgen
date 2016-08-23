@@ -32,7 +32,7 @@ class Vcgen_col extends Vcgen_node{
     }
 
     public function addContent(Vcgen_node $node){
-        $this->nodeContent[] = $node;
+        $this->addChild($node);
     }
 
 }
