@@ -16,11 +16,11 @@ class Vcgen_factory{
 
     public function __construct() {}
     
-    public function addRow(array $att = []){
+    public function newRow(array $att = []){
         return new Vcgen_row($att);
     }
 
-    public function addCol(array $att = []){
+    public function newCol(array $att = []){
         return new Vcgen_row($att);
     }
     

@@ -100,6 +100,10 @@ class Vcgen_node{
         return $this;
     }
 
+    protected function addChild(Vcgen_node $node){
+        $this->childNodes[] = $node;
+    }
+
 
     /**
      * Cria um novo VC shortcode a partir de metodos dinamicos

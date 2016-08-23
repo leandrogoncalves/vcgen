@@ -48,6 +48,7 @@ class Vcgen_row extends Vcgen_node{
 
         $this->createElement('vc_row', $attributes);
     }
+    
 
 
 }
