@@ -9,7 +9,7 @@
  *
  */
 
-namespace leandrogoncalves;
+namespace leandrogoncalves\nodes;
 
 
 class Vcgen_row extends Vcgen_node{

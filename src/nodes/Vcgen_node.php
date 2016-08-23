@@ -9,7 +9,7 @@
  *
  */
 
-namespace leandrogoncalves;
+namespace leandrogoncalves\nodes;
 
 use leandrogoncalves\exceptions\NullException;
 use leandrogoncalves\exceptions\ParameterException;

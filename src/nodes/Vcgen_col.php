@@ -9,7 +9,7 @@
  *
  */
 
-namespace leandrogoncalves;
+namespace leandrogoncalves\nodes;
 
 
 class Vcgen_col extends Vcgen_node{
@@ -28,8 +28,7 @@ class Vcgen_col extends Vcgen_node{
 
         $attributes = array_merge($attributes, $att);
 
-        $this->createElement( $attributes);
+        $this->createElement('vc_col', $attributes);
     }
-
 
 }

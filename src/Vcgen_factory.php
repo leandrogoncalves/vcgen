@@ -12,16 +12,46 @@
 namespace leandrogoncalves;
 
 
+use leandrogoncalves\exceptions\ParameterException;
+
 class Vcgen_factory{
 
-    public function __construct() {}
-    
-    public function newRow(array $att = []){
-        return new Vcgen_row($att);
+
+    /**
+     * @var array
+     */
+    protected $typeList;
+
+    /**
+     * use list types or merge with the default
+     * Vcgen_factory constructor.
+     */
+    public function __construct() {
+        $this->typeList = [
+            'newRow' => __NAMESPACE__ . '\nodes\Vcgen_row',
+            'newCol' => __NAMESPACE__ . '\nodes\Vcgen_col',
+        ];
     }
 
-    public function newCol(array $att = []){
-        return new Vcgen_row($att);
+    /**
+     * Create a new vcgen node dinamic
+     * @param $type String
+     * @param $attr String
+     */
+    public function __call($type, $attr){
+        if(!array_key_exists($type, $this->typeList )){
+           throw new ParameterException($type . " não é um parametro válido");
+        }
+        $className = $this->typeList[$type];
+        return new $className($attr);
     }
+    
+//    public function newRow(array $att = []){
+//        return new Vcgen_row($att);
+//    }
+//
+//    public function newCol(array $att = []){
+//        return new Vcgen_row($att);
+//    }
     
 }
