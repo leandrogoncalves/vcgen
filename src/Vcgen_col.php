@@ -31,12 +31,5 @@ class Vcgen_col extends Vcgen_node{
         $this->createElement( $attributes);
     }
 
-    public function addCol(Vcgen_col $col){
-        $this->addChild($col);
-    }
-
-    public function addCols(array $cols){
-        array_merge($this->childNodes, $cols);
-    }
 
 }

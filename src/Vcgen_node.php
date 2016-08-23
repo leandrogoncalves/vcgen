@@ -104,6 +104,14 @@ class Vcgen_node{
         $this->childNodes[] = $node;
     }
 
+    protected function addChildrens(Array $els){
+        foreach ($els as $e){
+            if(!($e instanceof Vcgen_node)){
+                throw new ParameterException("Os elementos devem ser filhos de Vcgen_node. ");
+            }
+        }
+        array_merge($this->childNodes, $els);
+    }
 
     /**
      * Cria um novo VC shortcode a partir de metodos dinamicos

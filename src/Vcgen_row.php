@@ -48,7 +48,14 @@ class Vcgen_row extends Vcgen_node{
 
         $this->createElement('vc_row', $attributes);
     }
-    
+
+    public function addCol(Vcgen_col $col){
+        $this->addChild($col);
+    }
+
+    public function addCols(array $cols){
+        $this->addChildrens($cols);
+    }
 
 
 }
