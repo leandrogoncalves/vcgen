@@ -12,7 +12,7 @@
 namespace leandrogoncalves\nodes;
 
 
-class Vcgen_dt_blog_scroller extends Vcgen_node{
+class Vcgen_dt_empyty_space extends Vcgen_node{
 
     /**
      * Vcgen constructor.
