@@ -79,7 +79,7 @@ class Vcgen_node implements \Iterator
      * @param array $attributes
      * @return Vcgen
      */
-    protected function createElement($name, $attributes = [],  $type = NODE_BLOCK)
+    protected function createElement($name, $attributes = [],  $type = self::NODE_BLOCK)
     {
 
         if (is_array($name)) throw new ParameterException("O nome deve ser uma string", 003);
