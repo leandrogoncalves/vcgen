@@ -118,7 +118,7 @@ class Vcgen_node implements \Iterator
      * @param $value Mixed
      * @return $this
      */
-    protected function setAttr($name, $value)
+    public function setAttr($name, $value)
     {
         if (!in_array($name, $this->attributes)) {
             $this->attributes[$name] = null;
@@ -176,7 +176,7 @@ class Vcgen_node implements \Iterator
     }
 
     /**
-     * (PHP 5 &gt;= 5.0.0)<br/>
+     * (PHP 5 >= 5.0.0)<br/>
      * Checks if current position is valid.
      *
      * @link http://php.net/manual/en/iterator.valid.php
@@ -191,7 +191,7 @@ class Vcgen_node implements \Iterator
 
 
     /**
-     * (PHP 5 &gt;= 5.0.0)<br/>
+     * (PHP 5 >= 5.0.0)<br/>
      * Return the key of the current element.
      *
      * @link http://php.net/manual/en/iterator.key.php
