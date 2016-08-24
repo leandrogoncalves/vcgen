@@ -11,7 +11,7 @@
 
 namespace leandrogoncalves\nodes;
 
-use leandrogoncalves\exceptions\NullException;
+
 use leandrogoncalves\exceptions\ParameterException;
 
 class Vcgen_node implements \Iterator
@@ -62,7 +62,7 @@ class Vcgen_node implements \Iterator
         $this->nodeValue = null;
         $this->attributes = [];
         $this->childNodes = [];
-        $this->correntNode = 0;
+        $this->currentNode = 0;
     }
 
     /**
@@ -96,7 +96,7 @@ class Vcgen_node implements \Iterator
         $tmp = "";
         if(!empty($this->attributes)){
             foreach ($this->attributes as $k => $att){
-                $tmp .= " {$k}='{$att}' ";
+                $tmp .= ($att) ?  " {$k}='{$att}' " : '';
             }
         }
         return $tmp;

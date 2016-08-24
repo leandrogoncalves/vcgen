@@ -13,6 +13,7 @@ namespace leandrogoncalves;
 
 
 use leandrogoncalves\exceptions\ParameterException;
+use leandrogoncalves\exceptions\NullException;
 
 class Vcgen_factory{
 
@@ -28,9 +29,11 @@ class Vcgen_factory{
      */
     public function __construct() {
         $this->typeList = [
-            'newRow'  => __NAMESPACE__ . '\nodes\Vcgen_row',
-            'newCol'  => __NAMESPACE__ . '\nodes\Vcgen_col',
-            'newText' => __NAMESPACE__ . '\nodes\Vcgen_text',
+            'newRow'       => __NAMESPACE__ . '\nodes\Vcgen_row',
+            'newInnerRow'  => __NAMESPACE__ . '\nodes\Vcgen_row_inner',
+            'newCol'       => __NAMESPACE__ . '\nodes\Vcgen_column',
+            'newInnerCol'  => __NAMESPACE__ . '\nodes\Vcgen_column_inner',
+            'newText'      => __NAMESPACE__ . '\nodes\Vcgen_text',
         ];
     }
 
@@ -43,7 +46,7 @@ class Vcgen_factory{
         try{
 
             if(!array_key_exists($type, $this->typeList )){
-                throw new ParameterException($type . " não é um parametro válido");
+                throw new ParameterException($type . " não é um tipo válido");
             }
             $className = $this->typeList[$type];
             return new $className(array_shift($attr));

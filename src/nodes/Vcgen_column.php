@@ -12,7 +12,7 @@
 namespace leandrogoncalves\nodes;
 
 
-class Vcgen_col extends Vcgen_node{
+class Vcgen_column extends Vcgen_node{
 
 
     /**
@@ -28,11 +28,12 @@ class Vcgen_col extends Vcgen_node{
 
         $attributes = array_merge($attributes, $att);
 
-        $this->createElement('vc_col', $attributes);
+        $this->createElement('vc_column', $attributes);
     }
 
     public function addContent(Vcgen_node $node){
         $this->addChild($node);
+        return $this;
     }
 
 }

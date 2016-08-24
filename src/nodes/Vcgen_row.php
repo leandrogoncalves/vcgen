@@ -45,7 +45,11 @@ class Vcgen_row extends Vcgen_node{
             'min_height' => '',
             'bg_image' => '',
             'el_class' => '',
-            'el_id' => ''
+            'el_id' => '',
+            'video_bg_url'=>'',
+            'video_bg_parallax'=>'',
+            'parallax_speed_bg'=>'',
+            'parallax_speed_video'=>'',
         ];
 
         $attributes = array_merge($attributes, $att);
@@ -57,8 +61,9 @@ class Vcgen_row extends Vcgen_node{
      * Adiciona uma nova coluna na linha
      * @param Vcgen_col $col
      */
-    public function addCol(Vcgen_col $col){
+    public function addCol(Vcgen_column $col){
         $this->addChild($col);
+        return $this;
     }
 
     /**
@@ -68,7 +73,7 @@ class Vcgen_row extends Vcgen_node{
     public function addCols(array $cols){
         try{
             foreach ($cols as $e) {
-                if (!$e instanceof Vcgen_col) {
+                if (!$e instanceof Vcgen_column) {
                     throw new ParameterException("Os elementos devem ser filhos de Vcgen_node. ");
                 }
                 $this->addChild($e);
@@ -77,6 +82,7 @@ class Vcgen_row extends Vcgen_node{
             //TODO tratar mensagem
             die($p->getMessage());
         }
+        return $this;
     }
 
 
