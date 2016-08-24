@@ -14,7 +14,7 @@ namespace leandrogoncalves\nodes;
 
 use leandrogoncalves\exceptions\ParameterException;
 
-class Vcgen_node implements \Iterator
+abstract class Vcgen_node implements \Iterator
 {
 
     /**
