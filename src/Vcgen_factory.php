@@ -48,14 +48,22 @@ class Vcgen_factory{
      * @param $type String
      * @param $attr String
      */
-    public function __call($type, $attr, $val = ''){
+    public function __call($type, $attr){
         try{
+
+            $attributes =  $val = null;
+
+            if(isset($attr[0])) $attributes = $attr[0];
+
+            if(isset($attr[1])) $val = $attr[1];
 
             if(!array_key_exists($type, $this->typeList )){
                 throw new ParameterException($type . " não é um tipo válido");
             }
+
             $className = $this->typeList[$type];
-            return new $className(array_shift($attr), $val);
+
+            return new $className($attributes, $val);
 
         }catch (ParameterException $e){
             //TODO tratar mensagem
