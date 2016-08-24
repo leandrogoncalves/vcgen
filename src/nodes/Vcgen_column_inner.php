@@ -33,9 +33,6 @@ class Vcgen_column_inner extends Vcgen_node{
         $this->createElement('vc_column_inner', $attributes);
     }
 
-    public function addContent(Vcgen_node $node){
-        $this->addChild($node);
-        return $this;
-    }
+  
 
 }

@@ -35,34 +35,5 @@ class Vcgen_row_inner extends Vcgen_node{
 
         $this->createElement('vc_row_inner', $attributes);
     }
-
-    /**
-     * Adiciona uma nova coluna interna na linha interna
-     * @param Vcgen_col $col
-     */
-    public function addInnerCol(Vcgen_column_inner $col){
-        $this->addChild($col);
-        return $this;
-    }
-
-    /**
-     * Adiciona mais de uma coluna interna na linha interna
-     * @param array $cols
-     */
-    public function addInnerCols(array $cols){
-        try{
-            foreach ($cols as $e) {
-                if (!$e instanceof Vcgen_column_inner) {
-                    throw new ParameterException("Os elementos devem ser filhos de Vcgen_column_inner. ");
-                }
-                $this->addChild($e);
-            }
-        }catch (ParameterException $p){
-            //TODO tratar mensagem
-            die($p->getMessage());
-        }
-        return $this;
-    }
-
-
+    
 }

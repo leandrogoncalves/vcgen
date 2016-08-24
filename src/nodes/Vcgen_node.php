@@ -136,9 +136,34 @@ abstract class Vcgen_node implements \Iterator
      *
      * @param Vcgen_node $node
      */
-    protected function addChild(Vcgen_node $node)
+    public function addChild(Vcgen_node $node)
     {
-        $this->childNodes[] = $node;
+        $this->attributes[] = $node;
+    }
+
+
+    /**
+     *
+     * Add a node child
+     *
+     * @param Vcgen_node $node
+     */
+    public function addChilds(Array $nodes){
+
+        try{
+
+            foreach ($nodes as $e) {
+                if (FALSE === ($e instanceof Vcgen_node)){
+                    throw new ParameterException("Os elementos devem ser filhos de Vcgen_node. ");
+                }
+                $this->addChild($e);
+            }
+
+
+        }catch (ParameterException $p){
+            //TODO tratar mensagem
+            die($p->getMessage());
+        }
     }
 
     /**

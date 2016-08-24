@@ -30,11 +30,11 @@ $config = Presscore_Config::get_instance();
     $row_1 = $factory->newRow(['full_width_row'=>'1']);
     $col_r = $factory->newCol(['width'=>'1/2']);
 
-    $col_r->addContent($factory->newText());
+    $col_r->addChild($factory->newText());
 
     $row_1->addCol($col_r);
 
-    $collection->add($row_1);
+    $collection->addNode($row_1);
 
 
     echo $collection->render();

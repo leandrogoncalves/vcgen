@@ -57,34 +57,6 @@ class Vcgen_row extends Vcgen_node{
 
         $this->createElement('vc_row', $attributes);
     }
-
-    /**
-     * Adiciona uma nova coluna na linha
-     * @param Vcgen_col $col
-     */
-    public function addCol(Vcgen_column $col){
-        $this->addChild($col);
-        return $this;
-    }
-
-    /**
-     * Adiciona mais de uma coluna ao mesmo tempo
-     * @param array $cols
-     */
-    public function addCols(array $cols){
-        try{
-            foreach ($cols as $e) {
-                if (!$e instanceof Vcgen_column) {
-                    throw new ParameterException("Os elementos devem ser filhos de Vcgen_column. ");
-                }
-                $this->addChild($e);
-            }
-        }catch (ParameterException $p){
-            //TODO tratar mensagem
-            die($p->getMessage());
-        }
-        return $this;
-    }
-
+    
 
 }
