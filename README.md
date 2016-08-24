@@ -1,6 +1,8 @@
 # vcgen
 =========
 
+[![Version ] 0.0.1]
+
 ## Introduction
 -----------------
  This Lib was created to generate shortcodes of visual composer plugin to Wordpress
