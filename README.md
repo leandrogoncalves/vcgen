@@ -1,7 +1,7 @@
 # vcgen
 =========
 
-[![Version ] 0.0.1]
+[![build Status] 0.0.1]
 
 ## Introduction
 -----------------
