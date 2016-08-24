@@ -9,7 +9,7 @@
  *
  */
 
-namespace leandrogoncalves\nodes;
+namespace vcgen\nodes;
 
 
 class Vcgen_dt_blog_scroller extends Vcgen_node{

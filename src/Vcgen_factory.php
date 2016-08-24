@@ -9,11 +9,11 @@
  *
  */
 
-namespace leandrogoncalves;
+namespace vcgen;
 
 
-use leandrogoncalves\exceptions\ParameterException;
-use leandrogoncalves\exceptions\NullException;
+use vcgen\exceptions\ParameterException;
+use vcgen\exceptions\NullException;
 
 class Vcgen_factory{
 

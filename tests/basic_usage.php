@@ -6,7 +6,8 @@
  * @since presscore 0.1
  */
 
-use leandrogoncalves\vcgen_factory;
+use vcgen\vcgen_factory;
+use vcgen\vcgen_collection;
 
 // File Security Check
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -26,23 +27,32 @@ $config = Presscore_Config::get_instance();
 
 
     $the_content =  get_the_content();
+    $img_id = get_post_thumbnail_id($post->ID);
 
-    $row_1 = $factory->newRow(['full_width_row'=>'1']);
-    $col_r = $factory->newCol(['width'=>'1/2']);
+    $main_row = $factory->newRow();
 
-    $col_r->addChild($factory->newText());
+    $col_r = $factory->newCol(['width'=>'1/3']);
 
-    $row_1->addCol($col_r);
+    $main_image = $factory->newImage(['image'=>$img_id]);
 
-    $collection->addNode($row_1);
+    $col_r->addChild($main_image);
 
 
-    echo $collection->render();
 
+
+    $col_l = $factory->newCol(['width'=>'2/3']);
+
+
+    $main_row->addChilds([$col_l,$col_r]);
 
     echo '<pre>';
-    die(print_r($row_1));
-    //
+    die(print_r($main_row));
+
+    $collection->addNode($main_row);
+
+
+    echo  do_shortcode($collection->render());
+
 
     do_action('presscore_after_post_content');
     ?>

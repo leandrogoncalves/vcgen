@@ -9,7 +9,7 @@
  *
  */
 
-namespace leandrogoncalves\nodes;
+namespace vcgen\nodes;
 
 
 class Vcgen_dt_empyty_space extends Vcgen_node{

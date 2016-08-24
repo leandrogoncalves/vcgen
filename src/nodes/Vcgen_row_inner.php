@@ -9,10 +9,10 @@
  *
  */
 
-namespace leandrogoncalves\nodes;
+namespace vcgen\nodes;
 
 
-use leandrogoncalves\exceptions\ParameterException;
+use vcgen\exceptions\ParameterException;
 
 class Vcgen_row_inner extends Vcgen_node{
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace leandrogoncalves\exceptions;
+namespace vcgen\exceptions;
 
 class NullException extends \Exception
 {

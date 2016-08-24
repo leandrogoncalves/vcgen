@@ -9,10 +9,10 @@
  *
  */
 
-namespace leandrogoncalves;
+namespace vcgen;
 
 
-use leandrogoncalves\nodes\Vcgen_node;
+use vcgen\nodes\Vcgen_node;
 
 class Vcgen_collection implements \Countable{
 

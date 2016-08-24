@@ -9,10 +9,10 @@
  *
  */
 
-namespace leandrogoncalves\nodes;
+namespace vcgen\nodes;
 
 
-use leandrogoncalves\exceptions\ParameterException;
+use vcgen\exceptions\ParameterException;
 
 abstract class Vcgen_node implements \Iterator
 {
