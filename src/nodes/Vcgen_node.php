@@ -138,7 +138,7 @@ abstract class Vcgen_node implements \Iterator
      */
     public function addChild(Vcgen_node $node)
     {
-        $this->attributes[] = $node;
+        $this->childNodes[] = $node;
     }
 
 
