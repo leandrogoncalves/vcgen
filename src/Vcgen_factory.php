@@ -77,12 +77,5 @@ class Vcgen_factory{
         }
     }
 
-//    public function newRow(array $att = []){
-//        return new Vcgen_row($att);
-//    }
-//
-//    public function newCol(array $att = []){
-//        return new Vcgen_row($att);
-//    }
 
 }
