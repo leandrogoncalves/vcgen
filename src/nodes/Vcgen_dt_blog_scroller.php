@@ -18,7 +18,7 @@ class Vcgen_gallery extends Vcgen_node{
     /**
      * Vcgen constructor.
      */
-    public function __construct(Array $att = []){
+    public function __construct($att = []){
         parent::__construct();
 
         $attributes = [
@@ -26,7 +26,7 @@ class Vcgen_gallery extends Vcgen_node{
             'ids'     => '',
         ];
 
-        $attributes = array_merge($attributes, $att);
+        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
 
         $this->createElement('dt_blog_scroller', $attributes, self::NODE_INLINE);
 

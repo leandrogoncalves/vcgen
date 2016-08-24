@@ -18,7 +18,7 @@ class Vcgen_ut_heading extends Vcgen_node{
     /**
      * Vcgen constructor.
      */
-    public function __construct(Array $att = [], $val = ''){
+    public function __construct($att = [], $val = ''){
         parent::__construct();
 
         $attributes = [
@@ -30,7 +30,7 @@ class Vcgen_ut_heading extends Vcgen_node{
             'line_height'        => '1',
             'line_color'         => '',
         ];
-        $attributes = array_merge($attributes, $att);
+        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
 
         $this->createElement('ultimate_heading', $attributes);
         $this->nodeContent = $val;

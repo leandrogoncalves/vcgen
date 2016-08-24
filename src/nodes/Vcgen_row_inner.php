@@ -20,7 +20,7 @@ class Vcgen_row_inner extends Vcgen_node{
     /**
      * Vcgen constructor.
      */
-    public function __construct(array $att = []){
+    public function __construct($att = []){
         parent::__construct();
 
         $attributes = [
@@ -31,7 +31,7 @@ class Vcgen_row_inner extends Vcgen_node{
             'css' => ''
         ];
 
-        $attributes = array_merge($attributes, $att);
+        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
 
         $this->createElement('vc_row_inner', $attributes);
     }

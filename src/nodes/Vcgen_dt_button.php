@@ -18,7 +18,7 @@ class Vcgen_dt_button extends Vcgen_node{
     /**
      * Vcgen constructor.
      */
-    public function __construct(Array $att = [], $val = ''){
+    public function __construct($att = [], $val = ''){
         parent::__construct();
 
         $attributes = [
@@ -29,7 +29,8 @@ class Vcgen_dt_button extends Vcgen_node{
             'smooth_scroll'      => '',
         ];
 
-        $attributes = array_merge($attributes, $att);
+        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
+
 
         $this->createElement('dt_button', $attributes);
         $this->nodeContent = $val;

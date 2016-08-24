@@ -87,7 +87,7 @@ class Vcgen_node implements \Iterator
         $this->nodeName = $name;
 
         if (is_array($attributes)) {
-            $this->attributes = array_merge($this->attributes, $attributes);
+            $this->attributes = $attributes;
         }else{
             $this->nodeContent = $attributes;
         }
