@@ -19,9 +19,9 @@ class Vcgen_node implements \Iterator
 
     /**
      * Tipos de nós
-     * TYPE_NODE 1 => shortcode tag do visual composer
      */
-    const TYPE_NODE = 1;
+    const NODE_BLOCK = 1;
+    const NODE_INLINE = 2;
 
     /**
      * Nome da tag
@@ -53,6 +53,13 @@ class Vcgen_node implements \Iterator
      */
     protected $currentNode;
 
+
+    /**
+     * TIPO DE NÓ
+     * @var int
+     */
+    public $nodeType;
+
     /**
      * Vcgen constructor.
      */
@@ -72,7 +79,7 @@ class Vcgen_node implements \Iterator
      * @param array $attributes
      * @return Vcgen
      */
-    protected function createElement($name, $attributes = [])
+    protected function createElement($name, $attributes = [],  $type = NODE_BLOCK)
     {
 
         if (is_array($name)) throw new ParameterException("O nome deve ser uma string", 003);
@@ -84,6 +91,8 @@ class Vcgen_node implements \Iterator
         }else{
             $this->nodeContent = $attributes;
         }
+
+        $this->nodeType = $type;
 
     }
 
@@ -119,7 +128,6 @@ class Vcgen_node implements \Iterator
             $this->attributes[$name] = $value;
         }
 
-        return $this;
     }
 
     /**
@@ -131,7 +139,6 @@ class Vcgen_node implements \Iterator
     protected function addChild(Vcgen_node $node)
     {
         $this->childNodes[] = $node;
-        return $this;
     }
 
     /**

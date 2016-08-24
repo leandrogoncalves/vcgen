@@ -50,6 +50,7 @@ class Vcgen_row extends Vcgen_node{
             'video_bg_parallax'=>'',
             'parallax_speed_bg'=>'',
             'parallax_speed_video'=>'',
+            'content_placement'=>'top',
         ];
 
         $attributes = array_merge($attributes, $att);
@@ -74,7 +75,7 @@ class Vcgen_row extends Vcgen_node{
         try{
             foreach ($cols as $e) {
                 if (!$e instanceof Vcgen_column) {
-                    throw new ParameterException("Os elementos devem ser filhos de Vcgen_node. ");
+                    throw new ParameterException("Os elementos devem ser filhos de Vcgen_column. ");
                 }
                 $this->addChild($e);
             }

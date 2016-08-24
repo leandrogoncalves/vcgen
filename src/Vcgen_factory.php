@@ -34,6 +34,12 @@ class Vcgen_factory{
             'newCol'       => __NAMESPACE__ . '\nodes\Vcgen_column',
             'newInnerCol'  => __NAMESPACE__ . '\nodes\Vcgen_column_inner',
             'newText'      => __NAMESPACE__ . '\nodes\Vcgen_text',
+            'newImage'     => __NAMESPACE__ . '\nodes\Vcgen_image',
+            'newGallery'   => __NAMESPACE__ . '\nodes\Vcgen_gallery',
+            'newSpacer'    => __NAMESPACE__ . '\nodes\Vcgen_empty_space',
+            'newDtButton'  => __NAMESPACE__ . '\nodes\Vcgen_dt_button',
+            'newHeader'    => __NAMESPACE__ . '\nodes\Vcgen_ut_heading',
+            'newDtBlogScroller'    => __NAMESPACE__ . '\nodes\Vcgen_dt_blog_scroller',
         ];
     }
 
@@ -42,14 +48,14 @@ class Vcgen_factory{
      * @param $type String
      * @param $attr String
      */
-    public function __call($type, $attr){
+    public function __call($type, $attr, $val = ''){
         try{
 
             if(!array_key_exists($type, $this->typeList )){
                 throw new ParameterException($type . " não é um tipo válido");
             }
             $className = $this->typeList[$type];
-            return new $className(array_shift($attr));
+            return new $className(array_shift($attr), $val);
 
         }catch (ParameterException $e){
             //TODO tratar mensagem

@@ -81,7 +81,7 @@ class Vcgen_collection implements \Countable{
                 $node->next();
             }
         }
-        $tmp .= "[/{$node->nodeName}]";
+        $tmp .= $node->nodeType === Vcgen_node::NODE_BLOCK ? "[/{$node->nodeName}]" : '';
         return $tmp;
         
     }
