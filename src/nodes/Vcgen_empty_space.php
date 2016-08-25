@@ -12,7 +12,7 @@
 namespace vcgen\nodes;
 
 
-class Vcgen_dt_empyty_space extends Vcgen_node{
+class Vcgen_dt_empty_space extends Vcgen_node{
 
     /**
      * Vcgen constructor.
@@ -21,11 +21,7 @@ class Vcgen_dt_empyty_space extends Vcgen_node{
         parent::__construct();
 
         $attributes = [
-            'number'          => '6',
-            'width'           => '318',
-            'height'          => '195',
-            'bg_under_posts'  => 'disabled',
-            'show_excerpt'    => 'true',
+            'height' => $val
         ];
 
         $this->createElement('dt_blog_scroller', $attributes, self::NODE_INLINE);
