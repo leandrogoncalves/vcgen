@@ -24,7 +24,7 @@ class Vcgen_empty_space extends Vcgen_node{
             'height' => $val
         ];
 
-        $this->createElement('dt_blog_scroller', $attributes, self::NODE_INLINE);
+        $this->createElement('vc_empty_space', $attributes, self::NODE_INLINE);
 
     }
 
