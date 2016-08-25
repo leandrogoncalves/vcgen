@@ -12,7 +12,7 @@
 namespace vcgen\nodes;
 
 
-class Vcgen_dt_empty_space extends Vcgen_node{
+class Vcgen_empty_space extends Vcgen_node{
 
     /**
      * Vcgen constructor.
