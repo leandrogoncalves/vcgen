@@ -12,6 +12,7 @@
 namespace vcgen\nodes;
 
 
+use vcgen\exceptions\NullException;
 use vcgen\exceptions\ParameterException;
 
 abstract class Vcgen_node implements \Iterator
@@ -168,6 +169,18 @@ abstract class Vcgen_node implements \Iterator
 
         return $this;
     }
+
+    /**
+     * Return a son node specific if this exists
+     *
+     * @param $k
+     * @return mixed|null
+     */
+    protected function getChild($k){
+        if( !$this->has_child() || !array_key_exists($k,$this->childNodes) )throw new NullException("Nó filho não encontrado");
+        return $this->childNodes[$k];
+    }
+
 
     /**
      * Check if exist son node

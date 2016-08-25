@@ -30,5 +30,18 @@ class Vcgen_column extends Vcgen_node{
 
         $this->createElement('vc_column', $attributes);
     }
-    
+
+    /**
+     * Return a inner Row specific
+     * @param $offset
+     * @return mixed|null
+     */
+    public function innerRow($offset){
+        try{
+            return $this->getChild($offset);
+        }catch (NullException $e){
+            die($e->getMessage());
+        }
+    }
+
 }

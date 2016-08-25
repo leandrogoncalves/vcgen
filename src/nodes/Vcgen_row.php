@@ -12,6 +12,7 @@
 namespace vcgen\nodes;
 
 
+use vcgen\exceptions\NullException;
 use vcgen\exceptions\ParameterException;
 
 class Vcgen_row extends Vcgen_node{
@@ -57,6 +58,20 @@ class Vcgen_row extends Vcgen_node{
 
         $this->createElement('vc_row', $attributes);
     }
-    
+
+    /**
+     * return a column specific
+     *
+     * @param $offset
+     * @return mixed|null
+     */
+    public function column($offset){
+        try{
+            return $this->getChild($offset);
+        }catch (NullException $e){
+            die($e->getMessage());
+        }
+    }
+
 
 }
