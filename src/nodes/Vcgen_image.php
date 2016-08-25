@@ -24,8 +24,8 @@ class Vcgen_image extends Vcgen_node{
         $attributes = [
             'image'    => '',
             'el_class' => '',
-            'img_size' => '',
-            'onclick'  => '',
+            'img_size' => 'full',
+            'onclick'  => 'link_image',
         ];
 
         $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
