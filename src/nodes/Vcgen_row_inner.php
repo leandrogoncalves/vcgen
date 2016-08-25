@@ -31,7 +31,7 @@ class Vcgen_row_inner extends Vcgen_node{
             'css' => ''
         ];
 
-        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
+        $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
 
         $this->createElement('vc_row_inner', $attributes);
     }
@@ -42,7 +42,7 @@ class Vcgen_row_inner extends Vcgen_node{
      * @param $offset
      * @return mixed|null
      */
-    public function innerCol($offset){
+    public function innerColumn($offset){
         try{
             return $this->getChild($offset);
         }catch (NullException $e){

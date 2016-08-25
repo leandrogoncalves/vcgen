@@ -29,7 +29,7 @@ class Vcgen_dt_button extends Vcgen_node{
             'smooth_scroll'      => '',
         ];
 
-        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
+        $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
 
 
         $this->createElement('dt_button', $attributes);

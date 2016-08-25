@@ -54,7 +54,7 @@ class Vcgen_row extends Vcgen_node{
             'content_placement'=>'top',
         ];
 
-        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
+        $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
 
         $this->createElement('vc_row', $attributes);
     }

@@ -28,7 +28,7 @@ class Vcgen_image extends Vcgen_node{
             'onclick'  => '',
         ];
 
-        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
+        $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
 
         $this->createElement('vc_single_image', $attributes, self::NODE_INLINE);
 

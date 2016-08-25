@@ -26,7 +26,7 @@ class Vcgen_dt_blog_scroller extends Vcgen_node{
             'ids'     => '',
         ];
 
-        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
+        $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
 
         $this->createElement('dt_blog_scroller', $attributes, self::NODE_INLINE);
 

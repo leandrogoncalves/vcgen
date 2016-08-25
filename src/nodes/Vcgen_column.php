@@ -26,7 +26,7 @@ class Vcgen_column extends Vcgen_node{
             'el_class' => '',
         ];
 
-        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
+        $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
 
         $this->createElement('vc_column', $attributes);
     }

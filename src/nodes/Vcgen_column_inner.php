@@ -28,7 +28,7 @@ class Vcgen_column_inner extends Vcgen_node{
             'offset' => '',
         ];
 
-        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
+        $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
 
         $this->createElement('vc_column_inner', $attributes);
     }

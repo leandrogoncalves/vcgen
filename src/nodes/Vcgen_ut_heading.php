@@ -30,7 +30,7 @@ class Vcgen_ut_heading extends Vcgen_node{
             'line_height'        => '1',
             'line_color'         => '',
         ];
-        $attributes = is_array($att)?  array_merge($attributes, $att) : '';
+        $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
 
         $this->createElement('ultimate_heading', $attributes);
         $this->nodeContent = $val;
