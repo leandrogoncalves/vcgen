@@ -139,6 +139,7 @@ abstract class Vcgen_node implements \Iterator
     public function addChild(Vcgen_node $node)
     {
         $this->childNodes[] = $node;
+        return $this;
     }
 
 
@@ -164,6 +165,8 @@ abstract class Vcgen_node implements \Iterator
             //TODO tratar mensagem
             die($p->getMessage());
         }
+
+        return $this;
     }
 
     /**
@@ -186,6 +189,7 @@ abstract class Vcgen_node implements \Iterator
      */
     public function next(){
         $this->currentNode++;
+        return $this;
     }
 
     /**
