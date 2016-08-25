@@ -89,9 +89,12 @@ abstract class Vcgen_node implements \Iterator
 
         if (is_array($attributes)) {
             $this->attributes = $attributes;
+        }elseif($attributes instanceof Vcgen_node){
+            $this->addChild($attributes);
         }else{
             $this->nodeContent = $attributes;
         }
+
 
         $this->nodeType = $type;
 
