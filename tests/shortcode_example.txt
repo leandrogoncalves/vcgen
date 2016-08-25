@@ -1,54 +1,126 @@
 [vc_row type="vc_default" gap="20" content_placement="top"]
 	[vc_column width="1/3"]
-		[vc_single_image image="125" img_size="full" onclick="link_image"]
-		[vc_column_text]
-	    	[gallery link="file" ids="97,57,70,113"]
-		[/vc_column_text]
-		[vc_column_text]
-			clique nas imagens para ampliar
-		[/vc_column_text]
-		[vc_empty_space height="60px"]
 		[vc_row_inner]
-			[vc_column_inner offset="vc_hidden-sm vc_hidden-xs"]
-				[dt_button link="#" target_blank="true" button_alignment="center" animation="bounce" smooth_scroll="true"]veja mais lojas deste segmento[/dt_button]
+			[vc_column_inner offset="vc_hidden-lg vc_hidden-md vc_hidden-sm"]
+
+				[vc_column_text]
+					<h1>Nome da Loja</h1>
+				[/vc_column_text]
+
+				[vc_column_text]
+					<h6>lista de segmentos</h6>
+				[/vc_column_text]
+
 				[vc_empty_space height="20px"]
-				[dt_button link="#" button_alignment="center"]veja a lista completa de lojas[/dt_button]
+
+				[vc_column_text]
+
+					<div id="icones-template">
+
+					<img src="http://pagebras.nacaodesign.com.br/wp-content/uploads/2016/08/pin.svg" />   Endereço da Loja
+
+					<img src="http://pagebras.nacaodesign.com.br/wp-content/uploads/2016/08/telefone.svg" />   Telefone da Loja
+
+					<img src="http://pagebras.nacaodesign.com.br/wp-content/uploads/2016/08/email.svg" />   Email da Loja
+
+					<img src="http://pagebras.nacaodesign.com.br/wp-content/uploads/2016/08/compartilhamento.svg" />   <a class="link-geral" href="#">Acesse o site da loja</a>
+
+					</div>
+				[/vc_column_text]
+
 				[vc_empty_space height="40px"]
-			[/vc_column_inner]	
+
+			[/vc_column_inner]
+		[/vc_row_inner]
+
+		[vc_single_image image="201" img_size="full" onclick="link_image"]
+
+		[vc_column_text]
+
+			[gallery link="file" ids="97,57,127,147,146,142"]
+
+		[/vc_column_text]
+		[vc_column_text]clique nas imagens para ampliar[/vc_column_text]
+		[vc_row_inner]
+			[vc_column_inner el_class="btn-template" offset="vc_hidden-xs"]
+				[vc_btn title="VEJA MAIS LOJAS DESTE SEGMENTO" style="flat" shape="square" color="blue" align="center" link="url:%23|||" button_block="true" el_class="btn-geral"]
+				[vc_empty_space height="20px"]
+				[vc_btn title="VEJA A LISTA COMPLETA DE LOJAS" style="flat" shape="square" color="blue" align="center" link="url:%23|||" button_block="true" el_class="btn-geral"]
+				[vc_empty_space height="40px"]
+			[/vc_column_inner]
 		[/vc_row_inner]
 	[/vc_column]
+
 	[vc_column width="2/3"]
-		[ultimate_heading main_heading="Nome da Loja" heading_tag="h1" alignment="left"]
-		<h1></h1>
-		[/ultimate_heading]
-		[vc_column_text]
-			<h6>Segmento | Segmento | Segmento</h6>
-		[/vc_column_text]
-		[vc_empty_space height="20px"]
-		[vc_column_text]
-			bloco de localização e
 
-			demais infos, com
+		[vc_row_inner]
+			[vc_column_inner offset="vc_hidden-xs"]
 
-			pictograma (ver layout)
-		[/vc_column_text]
+				[vc_column_text]<h1>Nome da Loja</h1>[/vc_column_text]
+
+				[vc_column_text]<h6>lista de segmentos</h6>[/vc_column_text]
+
+				[vc_empty_space height="20px"]
+
+				[vc_column_text]
+
+					<div id="icones-template">
+
+					<img src="http://pagebras.nacaodesign.com.br/wp-content/uploads/2016/08/pin.svg" />   Endereço da Loja
+
+					<img src="http://pagebras.nacaodesign.com.br/wp-content/uploads/2016/08/telefone.svg" />   Telefone da Loja
+
+					<img src="http://pagebras.nacaodesign.com.br/wp-content/uploads/2016/08/email.svg" />   Email da Loja
+
+					<img src="http://pagebras.nacaodesign.com.br/wp-content/uploads/2016/08/compartilhamento.svg" />   <a class="link-geral" href="#">Acesse o site da loja</a>
+
+					</div>
+				[/vc_column_text]
+			[/vc_column_inner]
+		[/vc_row_inner]
+
+
 		[vc_empty_space height="40px"]
+
 		[vc_column_text]
-			<p style="text-align: justify;">Texto de descrição DEVE SER JUSTIFICADO Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.</p>
+					<p style="text-align: justify;">Texto de descrição DEVE SER JUSTIFICADO Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.</p>
 		[/vc_column_text]
+
 		[vc_empty_space height="40px"]
-		[vc_column_text] 
-			aplicar aqui as redes sociais da loja 
-		[/vc_column_text]
-		[vc_empty_space height="60px"]
-			[vc_row_inner]
-				[vc_column_inner]
-					[ultimate_heading main_heading="Veja destaques desta loja" heading_tag="h3" alignment="left" spacer="line_only" spacer_position="middle" line_height="1" line_color="#bdbdbd"]
-					[/ultimate_heading]
-					[vc_empty_space height="20px"]
-					[dt_blog_scroller number="6" width="318" height="195" bg_under_posts="disabled" show_excerpt="true" show_categories="true"]
-				[/vc_column_inner]
-			[/vc_row_inner]
-		[vc_empty_space height="60px"]
+
+		[vc_column_text]aplicar aqui as redes sociais da loja[/vc_column_text]
+
+		vc_empty_space height="60px"]
+
+		[vc_row_inner]
+			[vc_column_inner el_class="btn-template" offset="vc_hidden-lg vc_hidden-md vc_hidden-sm"]
+				[vc_btn title="VEJA MAIS LOJAS DESTE SEGMENTO" style="flat" shape="square" color="blue" align="center" link="url:%23|||" button_block="true" el_class="btn-geral"]
+
+				[vc_empty_space height="20px"]
+
+				[vc_btn title="VEJA A LISTA COMPLETA DE LOJAS" style="flat" shape="square" color="blue" align="center" link="url:%23|||" button_block="true" el_class="btn-geral"]
+
+				[vc_empty_space height="40px"]
+
+			[/vc_column_inner]
+		[/vc_row_inner]
+
+		[vc_row_inner]
+			[vc_column_inner]
+				[vc_column_text]
+
+				<h4>VEJA DESTAQUES DESTA LOJA</h4>
+				[/vc_column_text]
+
+				[vc_separator]
+
+				[vc_empty_space height="20px"]
+
+				[dt_blog_scroller number="6" width="318" height="195" bg_under_posts="disabled" show_excerpt="true" show_categories="true" autoslide="5000" loop="true" dt_title=""]
+
+				[vc_empty_space height="60px"]
+
+			[/vc_column_inner]
+		[/vc_row_inner]
 	[/vc_column]
 [/vc_row]
