@@ -21,7 +21,7 @@ class Vcgen_text extends Vcgen_node{
     public function __construct($value){
         parent::__construct();
 
-        $this->createElement('vc_column_text', $value, self::NODE_INLINE);
+        $this->createElement('vc_column_text', $value);
     }
 
 
