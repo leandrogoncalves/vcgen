@@ -29,18 +29,19 @@ class Vcgen_factory{
      */
     public function __construct() {
         $this->typeList = [
-            'newDtBlogScroller'    => __NAMESPACE__ . '\nodes\Vcgen_dt_blog_scroller',
-            'newDtButton'  => __NAMESPACE__ . '\nodes\Vcgen_dt_button',
-            'newHeader'    => __NAMESPACE__ . '\nodes\Vcgen_ut_heading',
-            'newRow'       => __NAMESPACE__ . '\nodes\Vcgen_row',
-            'newInnerRow'  => __NAMESPACE__ . '\nodes\Vcgen_row_inner',
-            'newCol'       => __NAMESPACE__ . '\nodes\Vcgen_column',
-            'newInnerCol'  => __NAMESPACE__ . '\nodes\Vcgen_column_inner',
-            'newText'      => __NAMESPACE__ . '\nodes\Vcgen_text',
-            'newImage'     => __NAMESPACE__ . '\nodes\Vcgen_image',
-            'newGallery'   => __NAMESPACE__ . '\nodes\Vcgen_gallery',
-            'newSpacer'    => __NAMESPACE__ . '\nodes\Vcgen_empty_space',
-            'newButton'    => __NAMESPACE__ . '\nodes\Vcgen_button',
+            'newDtBlogScroller'     => __NAMESPACE__ . '\nodes\Vcgen_dt_blog_scroller',
+            'newDtButton'           => __NAMESPACE__ . '\nodes\Vcgen_dt_button',
+            'newHeader'             => __NAMESPACE__ . '\nodes\Vcgen_ut_heading',
+            'newRow'                => __NAMESPACE__ . '\nodes\Vcgen_row',
+            'newInnerRow'           => __NAMESPACE__ . '\nodes\Vcgen_row_inner',
+            'newCol'                => __NAMESPACE__ . '\nodes\Vcgen_column',
+            'newInnerCol'           => __NAMESPACE__ . '\nodes\Vcgen_column_inner',
+            'newText'               => __NAMESPACE__ . '\nodes\Vcgen_text',
+            'newImage'              => __NAMESPACE__ . '\nodes\Vcgen_image',
+            'newGallery'            => __NAMESPACE__ . '\nodes\Vcgen_gallery',
+            'newSpacer'             => __NAMESPACE__ . '\nodes\Vcgen_empty_space',
+            'newButton'             => __NAMESPACE__ . '\nodes\Vcgen_button',
+            'newSeparator'          => __NAMESPACE__ . '\nodes\Vcgen_separator',
         ];
     }
 

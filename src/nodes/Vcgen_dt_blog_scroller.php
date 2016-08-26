@@ -22,8 +22,14 @@ class Vcgen_dt_blog_scroller extends Vcgen_node{
         parent::__construct();
 
         $attributes = [
-            'link'    => 'file',
-            'ids'     => '',
+            'number'    => '6',
+            'width'     => '318',
+            'height'    => '195',
+            'bg_under_posts'  => 'disabled',
+            'show_excerpt'    => 'true',
+            'show_categories'    => 'true',
+            'autoslide'    => '',
+            'loop'    => 'true',
         ];
 
         $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
