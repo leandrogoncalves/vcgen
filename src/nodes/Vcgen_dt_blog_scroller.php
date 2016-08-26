@@ -38,7 +38,6 @@ class Vcgen_dt_blog_scroller extends Vcgen_node{
             'content_aligment'    => '',
             'max_width'    => '',
             'hover_bg_color'    => '',
-            'bg_under_posts'    => '',
         ];
 
         $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
