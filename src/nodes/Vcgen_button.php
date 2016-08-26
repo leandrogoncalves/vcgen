@@ -29,7 +29,7 @@ class Vcgen_button extends Vcgen_node{
             'color'    => 'blue',
             'align'    => 'center',
             'link'     => 'url:%23|||',
-            'link'     => 'button_block',
+            'button_block'     => 'true',
         ];
 
         $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
