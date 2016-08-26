@@ -261,4 +261,13 @@ abstract class Vcgen_node implements \Iterator
         $this->currentNode = 0;
     }
 
+
+    public function __clone(){
+        if($this->has_child()){
+            foreach ($this->childNodes as $k => $node) {
+                $this->childNodes[$k] = clone $node;
+            }
+        }
+    }
+
 }
