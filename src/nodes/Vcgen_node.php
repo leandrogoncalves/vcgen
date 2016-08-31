@@ -193,7 +193,7 @@ abstract class Vcgen_node implements \Iterator
      * @return mixed|null
      */
     protected function getChild($k){
-        if( !$this->has_child() || !array_key_exists($k,$this->childNodes) )throw new NullException("Nó filho não encontrado");
+        if( !$this->has_child() || !array_key_exists($k,$this->childNodes) )throw new NullException("Nó filho de {$k} não encontrado");
         return $this->childNodes[$k];
     }
 
@@ -286,6 +286,14 @@ abstract class Vcgen_node implements \Iterator
                 $this->childNodes[$k] = clone $node;
             }
         }
+    }
+
+    /**
+     * @return String
+     */
+    public function __toString()
+    {
+        return $this->nodeName;
     }
 
 }
