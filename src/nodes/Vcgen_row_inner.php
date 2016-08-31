@@ -42,7 +42,7 @@ class Vcgen_row_inner extends Vcgen_node{
      * @param $offset
      * @return mixed|null
      */
-    public function innerColumn($offset){
+    public function innerCol($offset){
         try{
             return $this->getChild($offset);
         }catch (NullException $e){
