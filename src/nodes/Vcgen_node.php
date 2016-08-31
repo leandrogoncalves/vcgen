@@ -59,14 +59,7 @@ abstract class Vcgen_node implements \Iterator
      * Abertura de tag
      * @var
      */
-    public $openTag;
-
-    /**
-     *
-     * @var
-     */
-    public $closeTag;
-
+    public $tags;
 
     /**
      * TIPO DE NÓ
@@ -207,6 +200,12 @@ abstract class Vcgen_node implements \Iterator
         return count($this->childNodes) > 0 ? true : false;
     }
 
+    /**
+     * @return bool
+     */
+    public function has_tags(){
+        return count($this->tags) > 0 ? true : false;
+    }
 
 
     /**
@@ -286,6 +285,34 @@ abstract class Vcgen_node implements \Iterator
                 $this->childNodes[$k] = clone $node;
             }
         }
+    }
+
+    /**
+     * Gera tags html
+     * @param $name
+     * @param $attr
+     */
+    public function __call($name, $attr){
+        $this->tags[]['name'] = $name;
+        $this->tags[]['attributes'] = $this->tags['value'] = NULL;
+        $this->tags[]['display'] = self::NODE_BLOCK;
+
+
+        if(!empty($attr[0]) && !is_array($attr[0])){
+            $this->tags[]['value'] = $attr[1];
+        }
+
+        if(!empty($attr[1]) && is_array($attr[1])){
+           foreach ($attr[1] as $k => $v) $this->tags[]['attributes'] .= " {$k}=\"$v\" ";
+        }
+
+        if(!empty($attr[2]) && !is_array($attr[2])){
+            $attr[2] = (int)$attr[2];
+            if($attr[2] == self::NODE_BLOCK || $attr[2] == self::NODE_INLINE){
+                $this->tags[]['display'] = $attr[2];
+            }
+        }
+
     }
 
     /**

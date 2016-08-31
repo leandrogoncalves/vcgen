@@ -88,15 +88,34 @@ class Vcgen_collection implements \Countable{
      */
     private function _renderNode(Vcgen_node $node){
         $tmp = "[{$node->nodeName} {$node->getAttributes()} ]";
-        $tmp .= ($node->openTag)? $node->openTag : '';
-        $tmp .= ($node->nodeContent)? $node->nodeContent : '';
-        if($node->has_child()){
-            while ($node->valid()){
-                $tmp .= $this->_renderNode($node->current());
-                $node->next();
+
+        
+        if($node->has_tags()){
+            foreach ($node->tags as $tag){
+                $tmp .= "<{$tag['name']} {$tag['attributes']}>";
+                $tmp .= $tag['value'];
             }
         }
-        $tmp .= ($node->closeTag)? $node->closeTag : '';
+        
+        
+        $tmp .= ($node->nodeContent)? $node->nodeContent : '';
+            if($node->has_child()){
+                while ($node->valid()){
+                    $tmp .= $this->_renderNode($node->current());
+                    $node->next();
+                }
+            }
+
+
+        if($node->has_tags()){
+            foreach ($node->tags as $tag){
+               if($tag['display'] ==  \vcgen\nodes\Vcgen_node::NODE_BLOCK){
+                   $tmp .= "</{$tag['name']}>";
+               }
+            }
+        }
+        
+        
         $tmp .= $node->nodeType === Vcgen_node::NODE_BLOCK ? "[/{$node->nodeName}]" : '';
         return $tmp;
         
