@@ -50,9 +50,22 @@ abstract class Vcgen_node implements \Iterator
 
 
     /**
+     * Nó atual
      * @var int
      */
     protected $currentNode;
+
+    /**
+     * Abertura de tag
+     * @var
+     */
+    public $openTag;
+
+    /**
+     *
+     * @var
+     */
+    public $closeTag;
 
 
     /**
@@ -262,6 +275,11 @@ abstract class Vcgen_node implements \Iterator
     }
 
 
+    /**
+     * Clonando objetos filhos
+     *
+     *@link http://php.net/manual/pt_BR/language.oop5.cloning.php
+     */
     public function __clone(){
         if($this->has_child()){
             foreach ($this->childNodes as $k => $node) {

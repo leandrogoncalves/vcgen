@@ -74,6 +74,7 @@ class Vcgen_collection implements \Countable{
      */
     private function _renderNode(Vcgen_node $node){
         $tmp = "[{$node->nodeName} {$node->getAttributes()} ]";
+        $tmp .= ($node->openTag)? $node->openTag : '';
         $tmp .= ($node->nodeContent)? $node->nodeContent : '';
         if($node->has_child()){
             while ($node->valid()){
@@ -81,6 +82,7 @@ class Vcgen_collection implements \Countable{
                 $node->next();
             }
         }
+        $tmp .= ($node->closeTag)? $node->closeTag : '';
         $tmp .= $node->nodeType === Vcgen_node::NODE_BLOCK ? "[/{$node->nodeName}]" : '';
         return $tmp;
         
