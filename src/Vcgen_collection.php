@@ -37,6 +37,20 @@ class Vcgen_collection implements \Countable{
         return $this;
     }
 
+
+    /**
+     * @param Vcgen_node $node
+     *  @return Vcgen_collection
+     */
+    public function addNodes(array $nodes){
+        foreach ($nodes as $node) {
+            if($node instanceof Vcgen_node){
+                $this->addNode($node);
+            }
+        }
+        return $this;
+    }
+
     /**
      * @param $bookNumberToGet
      * @return mixed
