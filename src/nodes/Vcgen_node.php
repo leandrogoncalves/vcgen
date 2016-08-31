@@ -62,6 +62,12 @@ abstract class Vcgen_node implements \Iterator
     public $tags;
 
     /**
+     * Tag`s pointer
+     * @var int
+     */
+    protected $tag_key;
+
+    /**
      * TIPO DE NÓ
      * @var int
      */
@@ -77,6 +83,7 @@ abstract class Vcgen_node implements \Iterator
         $this->attributes = [];
         $this->childNodes = [];
         $this->currentNode = 0;
+        $this->key_tag = 0;
     }
 
     /**
@@ -207,6 +214,13 @@ abstract class Vcgen_node implements \Iterator
         return count($this->tags) > 0 ? true : false;
     }
 
+    /**
+     *
+     */
+    private function nextTagkey(){
+        $this->tag_key++;
+    }
+
 
     /**
      * Move forward to next element.
@@ -293,26 +307,27 @@ abstract class Vcgen_node implements \Iterator
      * @param $attr
      */
     public function __call($name, $attr){
-        $this->tags[]['name'] = $name;
-        $this->tags[]['attributes'] = $this->tags['value'] = NULL;
-        $this->tags[]['display'] = self::NODE_BLOCK;
-
+        $this->tags[$this->tag_key]['name'] = $name;
+        $this->tags[$this->tag_key]['attributes'] = '';
+        $this->tags[$this->tag_key]['value'] = null;
+        $this->tags[$this->tag_key]['display'] = self::NODE_BLOCK;
 
         if(!empty($attr[0]) && !is_array($attr[0])){
-            $this->tags[]['value'] = $attr[1];
+            $this->tags[$this->tag_key]['value'] = $attr[0];
         }
 
         if(!empty($attr[1]) && is_array($attr[1])){
-           foreach ($attr[1] as $k => $v) $this->tags[]['attributes'] .= " {$k}=\"$v\" ";
+            foreach ($attr[1] as $k => $v) $this->tags[$this->tag_key]['attributes'] .= " {$k}=\"$v\" ";
         }
 
         if(!empty($attr[2]) && !is_array($attr[2])){
             $attr[2] = (int)$attr[2];
             if($attr[2] == self::NODE_BLOCK || $attr[2] == self::NODE_INLINE){
-                $this->tags[]['display'] = $attr[2];
+                $this->tags[$this->tag_key]['display'] = $attr[2];
             }
         }
 
+        $this->nextTagkey();
     }
 
     /**
