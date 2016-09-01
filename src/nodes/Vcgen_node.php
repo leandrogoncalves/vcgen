@@ -23,6 +23,7 @@ abstract class Vcgen_node implements \Iterator
      */
     const NODE_BLOCK = 1;
     const NODE_INLINE = 2;
+    const NODE_CONTAINER = FALSE;
 
     /**
      * Nome da tag
@@ -311,6 +312,7 @@ abstract class Vcgen_node implements \Iterator
         $this->tags[$this->tag_key]['attributes'] = '';
         $this->tags[$this->tag_key]['value'] = null;
         $this->tags[$this->tag_key]['display'] = self::NODE_BLOCK;
+        $this->tags[$this->tag_key]['container'] = self::NODE_CONTAINER;
 
         if(!empty($attr[0]) && !is_array($attr[0])){
             $this->tags[$this->tag_key]['value'] = $attr[0];
@@ -325,6 +327,11 @@ abstract class Vcgen_node implements \Iterator
             if($attr[2] == self::NODE_BLOCK || $attr[2] == self::NODE_INLINE){
                 $this->tags[$this->tag_key]['display'] = $attr[2];
             }
+        }
+        
+        if(!empty($attr[2]) && !is_array($attr[2])){
+            $attr[2] = (bool)$attr[2];
+                $this->tags[$this->tag_key]['display'] = $attr[3];
         }
 
         $this->nextTagkey();

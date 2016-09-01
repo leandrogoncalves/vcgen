@@ -94,6 +94,9 @@ class Vcgen_collection implements \Countable{
             foreach ($node->tags as $tag){
                 $tmp .= "<{$tag['name']} {$tag['attributes']}>";
                 $tmp .= $tag['value'];
+                if($tag['display'] ==  \vcgen\nodes\Vcgen_node::NODE_BLOCK && !$tag['container']){
+                    $tmp .= "</{$tag['name']}>";
+                }
             }
         }
         
@@ -109,9 +112,9 @@ class Vcgen_collection implements \Countable{
 
         if($node->has_tags()){
             foreach ($node->tags as $tag){
-               if($tag['display'] ==  \vcgen\nodes\Vcgen_node::NODE_BLOCK){
-                   $tmp .= "</{$tag['name']}>";
-               }
+                if($tag['display'] ==  \vcgen\nodes\Vcgen_node::NODE_BLOCK && $tag['container']){
+                    $tmp .= "</{$tag['name']}>";
+                }
             }
         }
         
