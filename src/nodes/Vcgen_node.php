@@ -328,10 +328,10 @@ abstract class Vcgen_node implements \Iterator
                 $this->tags[$this->tag_key]['display'] = $attr[2];
             }
         }
-        
-        if(!empty($attr[2]) && !is_array($attr[2])){
-            $attr[2] = (bool)$attr[2];
-                $this->tags[$this->tag_key]['display'] = $attr[3];
+
+        if(!empty($attr[3]) && !is_array($attr[3])){
+            $attr[3] = (bool)$attr[3];
+            $this->tags[$this->tag_key]['container'] = $attr[3];
         }
 
         $this->nextTagkey();
