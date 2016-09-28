@@ -24,6 +24,7 @@ class Vcgen_ult_heading extends Vcgen_node{
         $attributes = [
             'main_heading'          => '#',
             'heading_tag'           => 'h1',
+            'main_heading_color'    => '',
             'alignment'             => 'left',
             'spacer'                => '',
             'spacer_position'       => '',
@@ -31,7 +32,7 @@ class Vcgen_ult_heading extends Vcgen_node{
             'line_color'            => '',
             'main_heading_margin'   => '',
         ];
-        
+
         $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
 
         $this->createElement('ultimate_heading', $attributes);
