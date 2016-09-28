@@ -15,9 +15,10 @@ namespace vcgen\nodes;
 class Vcgen_ult_buttons extends Vcgen_node{
 
     /**
-     * Vcgen constructor.
+     * Vcgen_ult_buttons constructor.
+     * @param array $att
      */
-    public function __construct($val){
+    public function __construct($att = []){
         parent::__construct();
 
         $attributes = [
