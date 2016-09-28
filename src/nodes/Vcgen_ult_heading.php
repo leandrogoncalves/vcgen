@@ -12,7 +12,7 @@
 namespace vcgen\nodes;
 
 
-class Vcgen_ut_heading extends Vcgen_node{
+class Vcgen_ult_heading extends Vcgen_node{
 
 
     /**
