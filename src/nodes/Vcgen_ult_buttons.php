@@ -45,6 +45,8 @@ class Vcgen_ult_buttons extends Vcgen_node{
             'btn_font_size'           => 'desktop:11px;',
         ];
 
+        $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
+
         $this->createElement('ult_buttons', $attributes, self::NODE_INLINE);
 
     }
