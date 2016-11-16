@@ -12,7 +12,7 @@
 namespace vcgen\nodes;
 
 
-class Vcgen_ut_heading extends Vcgen_node{
+class Vcgen_ult_heading extends Vcgen_node{
 
 
     /**
@@ -22,14 +22,17 @@ class Vcgen_ut_heading extends Vcgen_node{
         parent::__construct();
 
         $attributes = [
-            'main_heading'       => '#',
-            'heading_tag'        => 'h1',
-            'alignment'          => 'left',
-            'spacer'             => '',
-            'spacer_position'    => '',
-            'line_height'        => '1',
-            'line_color'         => '',
+            'main_heading'          => '#',
+            'heading_tag'           => 'h1',
+            'main_heading_color'    => '',
+            'alignment'             => 'left',
+            'spacer'                => '',
+            'spacer_position'       => '',
+            'line_height'           => '1',
+            'line_color'            => '',
+            'main_heading_margin'   => '',
         ];
+
         $attributes = is_array($att)?  array_merge($attributes, $att) : $attributes;
 
         $this->createElement('ultimate_heading', $attributes);

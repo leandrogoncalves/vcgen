@@ -31,7 +31,10 @@ class Vcgen_factory{
         $this->typeList = [
             'newDtBlogScroller'     => __NAMESPACE__ . '\nodes\Vcgen_dt_blog_scroller',
             'newDtButton'           => __NAMESPACE__ . '\nodes\Vcgen_dt_button',
-            'newHeader'             => __NAMESPACE__ . '\nodes\Vcgen_ut_heading',
+            'newUltButton'          => __NAMESPACE__ . '\nodes\Vcgen_ult_buttons',
+            'newHeader'             => __NAMESPACE__ . '\nodes\Vcgen_ult_heading',
+            'newUltContentBox'      => __NAMESPACE__ . '\nodes\Vcgen_ult_contentbox',
+            'newBsfInfobox'         => __NAMESPACE__ . '\nodes\Vcgen_bsf_infobox',
             'newRow'                => __NAMESPACE__ . '\nodes\Vcgen_row',
             'newInnerRow'           => __NAMESPACE__ . '\nodes\Vcgen_row_inner',
             'newCol'                => __NAMESPACE__ . '\nodes\Vcgen_column',
